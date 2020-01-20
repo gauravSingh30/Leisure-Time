@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Progress Bar
+        </title>
+    </head>
+
+    <body>
+        <div class = "bar-container">
+            <div class = "bar"></div>
+            <input class = "input" id ="seconds" placeholder="Time(seconds)">
+            <button class = "button" onclick="fill()">Start</button>
+            <div>
+                <p id="warning">Please Enter the time to fill progress bar!!!!!!</p>
+            </div>
+        </div>
+
+        <script>
+            fill = () => {
+                const seconds = document.querySelector('#seconds').value;
+                const warning = document.querySelector('#warning');
+                const progressBar = document.querySelector('.bar');
+                progressBar.style.width = 0 + '%';
+                if(warning && seconds) {
+                    warning.style.display = "none";
+                }
+                if(seconds) {
+                    let atPercent = 0;
+                    const interval = setInterval(() => {
+                        progressBar.style.width = atPercent + '%';
+                        atPercent++;
+                        if(atPercent > 100) {
+                            clearInterval(interval);
+                        }
+                    }, (seconds*1000)/100);
+                } else {
+                    warning.style.display = "block";
+                }
+            }
+        </script>
+    </body>
+
+    <style>
+        body {
+            background-color: lightgray;
+        }
+
+        .bar-container {
+            width: 500px;
+            height: 30px;
+            margin: 40px;
+            background-color: gray;
+        }
+
+        .bar {
+            width: 0%;
+            height: 100%;
+            background-color: green;
+        }
+
+        .input {
+            margin-left: 0;
+            margin-top: 15px;
+            margin-right: 15px;
+        }
+
+        .button {
+            margin-left: 0;
+            margin-top: 15px;
+            margin-right: 15px;
+        }
+
+        #warning {
+            color: red;
+            display: none;
+        }
+    </style>
+
+
+</html>
+</html>

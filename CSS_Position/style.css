@@ -1,0 +1,30 @@
+.parent {
+    background-color: blue;
+    font-size: 100px;
+    position: relative;
+    height: 200vh;
+}
+
+
+.child-one {
+    background-color: red;
+    font-size: 100px;
+    position: sticky;  /* combination of relative and fixed */
+    top: 30px;
+}
+
+.child-two {
+    background-color: green;
+    font-size: 100px;
+    position: absolute; /* it will take the parent as reference, it renders as if it doesnt exists in the DOM,  */
+    top: 0;
+    right: 0;
+}
+
+.child-three {
+    background-color: yellow;
+    font-size: 100px;
+    position: fixed; /* it not be scrolled as the page is scrolled and wont take the parent as reference it renders as if it doesnt exists in the DOM*/
+    top: 200;
+    right: 0;
+}
